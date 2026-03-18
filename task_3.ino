@@ -1,5 +1,4 @@
 volatile uint8_t counter; 
-const uint8_t EEPROM_ADDR = 0x00;
 
 uint8_t eeprom_read_asm() {
   uint8_t result;
