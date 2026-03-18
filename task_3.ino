@@ -47,12 +47,12 @@ void loop() {
   uint8_t temp_reg;
 
   asm volatile (
-    "in   %[temp], %[tifr]       \n\t" // Read Flags
+    "in   %[temp], %[tifr]       \n\t" // Read flags
     "sbrs %[temp], %[ocf_bit]    \n\t" // Skip if 1 second has passed
     "rjmp end_asm                \n\t" 
-    "inc  %[cnt]                 \n\t" // Increment Live Register
+    "inc  %[cnt]                 \n\t" // Increment register
     "ldi  %[temp], (1<<%[ocf_bit]) \n\t" 
-    "out  %[tifr], %[temp]       \n\t" // Clear Flag
+    "out  %[tifr], %[temp]       \n\t" // Clear flag
     "ldi  %[passed], 1           \n\t" // Signal C++ that a second passed
     "end_asm:                    \n\t"
     : [cnt] "+d" (counter), [temp] "=&d" (temp_reg), [passed] "+d" (secondPassed)
