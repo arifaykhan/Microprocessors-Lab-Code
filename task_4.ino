@@ -16,7 +16,7 @@ void setup() {
 
     TCCR1A = 0;             
     TCCR1B = (1 << WGM12) | (1 << CS11) | (1 << CS10); //set prescaler 64 and enable CTC
-    OCR1A = 100;             //value for 1 ms interrupt
+    OCR1A = 249;             //value for 1 ms interrupt
     TIMSK1 |= (1 << OCIE1A); //enable output compare interrupt, i.e. interrupt to timer1_compa_vect on ctc
 
     sei(); //enable global interrupts
