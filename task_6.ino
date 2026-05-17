@@ -16,7 +16,6 @@ void displayDigit(uint8_t n) {
     PORTB &= ~((1 << PB0) | (1 << PB1));
     PORTD &= ~((1 << PD3) | (1 << PD4) | (1 << PD5) | (1 << PD6) | (1 << PD7));
 
-    // Map bits to ports (Check your wiring if mirrored!)
     if (mask & (1 << 0)) PORTB |= (1 << PB1);
     if (mask & (1 << 1)) PORTB |= (1 << PB0);
     if (mask & (1 << 2)) PORTD |= (1 << PD7);
